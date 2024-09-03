@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
+
 
 class UserBase(BaseModel):
     name: str
@@ -9,12 +10,23 @@ class UserBase(BaseModel):
     city: str
     interests: List[str]
 
+
+class UserBaseOptional(BaseModel):
+    name: Optional[str] = None
+    age: Optional[int] = None
+    gender: Optional[str] = None
+    email: Optional[str] = None
+    city: Optional[str] = None
+    interests: Optional[List[str]] = None
+
+
 class UserCreate(UserBase):
     pass
 
-class User(UserBase):
+
+class UserUpdate(UserBaseOptional):
     id: int
 
-    class Config:
-        orm_mode = True
 
+class User(UserBase):
+    id: int

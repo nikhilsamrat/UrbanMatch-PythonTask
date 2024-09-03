@@ -1,14 +1,14 @@
-from sqlalchemy import Column, Integer, String, ARRAY
+from sqlalchemy import Column, INTEGER, TEXT
 from database import Base
+
 
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    age = Column(Integer)
-    gender = Column(String)
-    email = Column(String, unique=True, index=True)
-    city = Column(String, index=True)
-    interests = Column(ARRAY(String))
-
+    id = Column(INTEGER, primary_key=True, index=True)
+    name = Column(TEXT, index=True)
+    age = Column(INTEGER)
+    gender = Column(TEXT)
+    email = Column(TEXT, unique=True, index=True)
+    city = Column(TEXT, index=True)
+    interests = Column(TEXT)
